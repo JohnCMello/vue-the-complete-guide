@@ -1,15 +1,19 @@
 <template>
   <div>
-    <header>
-      <slot name="header" />
+    <header v-if="$slots.header">
+      <slot name="header">
+        <!-- <h2>Default slot content</h2> -->
+      </slot>
     </header>
-    <slot />
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['content'],
+  mounted() {
+    console.log(this.$slots.header);
+  },
 };
 </script>
 
